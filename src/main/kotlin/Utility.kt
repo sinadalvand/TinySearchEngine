@@ -6,10 +6,6 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.search.similarities.LMDirichletSimilarity
 import org.apache.lucene.search.similarities.LMJelinekMercerSimilarity
 import org.apache.lucene.search.similarities.Similarity
-import org.apache.lucene.search.similarities.SimilarityBase
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths
 import java.util.*
 
 /**
@@ -31,7 +27,9 @@ fun getSimilarity(similarity: SIMILARITY): Similarity? {
         SIMILARITY.DEFAULT -> null
         SIMILARITY.S_JM -> LMJelinekMercerSimilarity(0.5f)
         SIMILARITY.S_DR -> LMDirichletSimilarity()
-        SIMILARITY.CUSTOM -> TFIDFSimi()
+        SIMILARITY.TFIDF -> TFIDFSimi()
+        SIMILARITY.CUSTOM -> TFIDF2()
+
     }
 }
 

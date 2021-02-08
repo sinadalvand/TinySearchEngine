@@ -49,12 +49,13 @@ fun analyzerMenu(scanner: Scanner): ANALYZER {
 
 
 fun similarityMenu(scanner: Scanner): SIMILARITY {
-    println("\n< ================ Similarity Menu ================ > \n1.Default\n2.Smoothing (JM)\n3.Smoothing (Drishlet)\n4.Custom \n \nwhich one?")
+    println("\n< ================ Similarity Menu ================ > \n1.Default\n2.Smoothing (JM)\n3.Smoothing (Drishlet)\n4.TFIDF\n5.Custom-TFIDF  \n \nwhich one?")
     return when (scanner.nextInt()) {
         1 -> SIMILARITY.DEFAULT
         2 -> SIMILARITY.S_JM
         3 -> SIMILARITY.S_DR
-        4 -> SIMILARITY.CUSTOM
+        4 -> SIMILARITY.TFIDF
+        5 ->SIMILARITY.CUSTOM
         else -> SIMILARITY.DEFAULT
     }
 }
@@ -70,5 +71,5 @@ enum class ANALYZER(val type: String) {
 
 
 enum class SIMILARITY(val type: String) {
-    DEFAULT("Default"), S_JM("Smoothing(JM)"), S_DR("Smoothing(Drishlet)"), CUSTOM("TFIDF")
+    DEFAULT("Default"), S_JM("Smoothing(JM)"), S_DR("Smoothing(Drishlet)"), TFIDF("TFIDF"),CUSTOM("New TFIDF ")
 }
